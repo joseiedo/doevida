@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
 
   return (
-    <header className="bg-rose-600 text-white py-3">
+    <header className="bg-rose-500 text-white py-3">
       <div className="flex max-w-5xl justify-between m-auto">
         <Image src={'/doevida.svg'} width={100} height={27} alt="Logo Doe vida" />
         <nav>

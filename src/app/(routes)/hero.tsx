@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative bg-pink-600 ">
+    <div className="relative">
       <Image
         className="w-full object-cover block max-h-96"
         src={"/hero-bg.jpg"}

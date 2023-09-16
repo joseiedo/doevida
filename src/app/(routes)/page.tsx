@@ -2,6 +2,7 @@
 import { Header } from "@/components";
 import Hero from "./hero";
 import Links from "./links";
+import DonationPercentage from "./donation-percentage";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Links />
+      <DonationPercentage/>
     </>
   );
 }
