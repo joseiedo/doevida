@@ -11,7 +11,7 @@ export default function Hero() {
         height={397}
       />
       <div className="absolute h-full w-full top-0 flex items-center justify-center">
-        <h2 className="text-4xl font-medium text-white">
+        <h2 className="text-4xl font-bold text-white">
           Uma única doação <br />
           pode salvar até <br />
           <span className="bg-rose-500">
