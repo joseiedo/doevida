@@ -4,7 +4,7 @@ interface IButton {
   className: string | undefined;
 }
 
-export default function Button({ onClick, text, className }: IButton) {
+export default function Button({ onClick, text, className = "" }: IButton) {
   return (
     <button
       onChange={onClick}
@@ -13,8 +13,4 @@ export default function Button({ onClick, text, className }: IButton) {
     { text }
     </button >
   );
-}
-
-Button.defaultProps = {
-  className: ''
 }
