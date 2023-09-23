@@ -1,23 +1,23 @@
 export interface Contact {
-  address: ContactInfo;
-  postalCode: ContactInfo;
-  phone: ContactInfo;
-  email: ContactInfo;
+  address: IContactInfo;
+  postalCode: IContactInfo;
+  phone: IContactInfo;
+  email: IContactInfo;
 }
 
-export interface ContactInfo {
+export interface IContactInfo {
   type: ContactInfoType;
   content: string;
 }
 
 export type ContactInfoType = "ADDRESS" | "POSTALCODE" | "PHONE" | "EMAIL";
 
-export interface Region {
+export interface IRegion {
   name: string;
-  hemocenters: Hemocenter[];
+  hemocenters: IHemocenter[];
 }
 
-export interface Hemocenter {
+export interface IHemocenter {
   name: string;
   contact: Contact;
 }

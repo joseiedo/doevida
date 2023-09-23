@@ -1,9 +1,9 @@
 import {
   Contact,
-  ContactInfo,
+  IContactInfo,
   ContactInfoType,
-  Hemocenter,
-  Region,
+  IHemocenter,
+  IRegion,
 } from "@/@types/Hemocenter";
 import axios from "axios";
 import * as cheerio from "cheerio";
@@ -22,11 +22,11 @@ function formatHemocenterInfo(contact: string): Contact {
     address,
     postalCode,
     phone,
-    email
+    email,
   };
 }
 
-function cleanHemocenterContactInfo(content: string): ContactInfo {
+function cleanHemocenterContactInfo(content: string): IContactInfo {
   const contactsTypes: { [key: string]: ContactInfoType } = {
     Endereço: "ADDRESS",
     Rua: "ADDRESS",
@@ -41,11 +41,7 @@ function cleanHemocenterContactInfo(content: string): ContactInfo {
   );
 
   if (!matchedType) {
-    console.log("FOO", content);
-    return {
-      type: "ADDRESS",
-      content: "TEST",
-    };
+    throw Error;
   }
 
   return {
@@ -54,20 +50,20 @@ function cleanHemocenterContactInfo(content: string): ContactInfo {
   };
 }
 
-async function getAll(): Promise<Region[]> {
+async function getAll(): Promise<IRegion[]> {
   const { data } = await axios.get(
     "https://www.gov.br/saude/pt-br/acesso-a-informacao/acoes-e-programas/doacao-de-sangue/hemocentros-no-brasil",
   );
   const $ = cheerio.load(data);
 
-  const result: Region[] = [];
+  const result: IRegion[] = [];
   $("#parent-fieldname-text p:has(strong)")
     .get()
     .forEach((element) => {
       const regionName = $(element).text();
       const hemoElements = $(element).nextUntil("p:has(strong)");
 
-      const hemocenters: Hemocenter[] = [];
+      const hemocenters: IHemocenter[] = [];
       for (let i = 0; i < hemoElements.length; i += 2) {
         const hemocenterTitle = $(hemoElements[i]).text().replace(/(\n)/g, "");
         const hemocenterInfo = $(hemoElements[i + 1]).text();
