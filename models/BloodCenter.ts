@@ -8,8 +8,8 @@ import {
 import axios from "axios";
 import * as cheerio from "cheerio";
 
+const infoPattern = /(Endereço|CEP|Telefone|E-mail):?/gi;
 function formatBloodCenterInfo(contact: string): Contact {
-  const infoPattern = /(Endereço|CEP|Telefone|E-mail)/gi;
   const separator = "\n";
   const [address, postalCode, phone, email] = contact
     .replace(infoPattern, separator + "$1")
@@ -46,7 +46,7 @@ function cleanBloodCenterContactInfo(content: string): IContactInfo {
 
   return {
     type: contactsTypes[matchedType],
-    content: content,
+    content: content.replace(infoPattern, "").trim(),
   };
 }
 
