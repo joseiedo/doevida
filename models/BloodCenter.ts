@@ -2,13 +2,13 @@ import {
   Contact,
   IContactInfo,
   ContactInfoType,
-  IHemocenter,
+  IBloodCenter,
   IRegion,
-} from "@/@types/Hemocenter";
+} from "@/@types/BloodCenter";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
-function formatHemocenterInfo(contact: string): Contact {
+function formatBloodCenterInfo(contact: string): Contact {
   const infoPattern = /(Endereço|CEP|Telefone|E-mail)/gi;
   const separator = "\n";
   const [address, postalCode, phone, email] = contact
@@ -16,7 +16,7 @@ function formatHemocenterInfo(contact: string): Contact {
     .split(separator)
     .map((info) => info.trim())
     .filter((item) => item !== "")
-    .map(cleanHemocenterContactInfo);
+    .map(cleanBloodCenterContactInfo);
 
   return {
     address,
@@ -26,7 +26,7 @@ function formatHemocenterInfo(contact: string): Contact {
   };
 }
 
-function cleanHemocenterContactInfo(content: string): IContactInfo {
+function cleanBloodCenterContactInfo(content: string): IContactInfo {
   const contactsTypes: { [key: string]: ContactInfoType } = {
     Endereço: "ADDRESS",
     Rua: "ADDRESS",
@@ -61,22 +61,22 @@ async function getAll(): Promise<IRegion[]> {
     .get()
     .forEach((element) => {
       const regionName = $(element).text();
-      const hemoElements = $(element).nextUntil("p:has(strong)");
+      const bloodCenterElements = $(element).nextUntil("p:has(strong)");
 
-      const hemocenters: IHemocenter[] = [];
-      for (let i = 0; i < hemoElements.length; i += 2) {
-        const hemocenterTitle = $(hemoElements[i]).text().replace(/(\n)/g, "");
-        const hemocenterInfo = $(hemoElements[i + 1]).text();
+      const bloodCenters: IBloodCenter[] = [];
+      for (let i = 0; i < bloodCenterElements.length; i += 2) {
+        const bloodCenterTitle = $(bloodCenterElements[i]).text().replace(/(\n)/g, "");
+        const bloodCenterInfo = $(bloodCenterElements[i + 1]).text();
 
-        hemocenters.push({
-          name: hemocenterTitle,
-          contact: formatHemocenterInfo(hemocenterInfo),
+        bloodCenters.push({
+          name: bloodCenterTitle,
+          contact: formatBloodCenterInfo(bloodCenterInfo),
         });
       }
 
       result.push({
         name: regionName,
-        hemocenters,
+        bloodCenters: bloodCenters,
       });
     });
 

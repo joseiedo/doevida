@@ -14,10 +14,10 @@ export type ContactInfoType = "ADDRESS" | "POSTALCODE" | "PHONE" | "EMAIL";
 
 export interface IRegion {
   name: string;
-  hemocenters: IHemocenter[];
+  bloodCenters: IBloodCenter[];
 }
 
-export interface IHemocenter {
+export interface IBloodCenter {
   name: string;
   contact: Contact;
 }

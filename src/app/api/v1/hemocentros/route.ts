@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import Hemocenter from "../../../../../models/hemocenter";
+import BloodCenter from "../../../../../models/bloodCenter";
 
 export async function GET() {
-  const response = await Hemocenter.getAll()
+  const response = await BloodCenter.getAll()
   return NextResponse.json(response)
 }

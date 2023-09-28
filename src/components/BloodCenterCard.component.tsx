@@ -1,9 +1,9 @@
 import {
   Contact,
-  IHemocenter,
+  IBloodCenter,
   ContactInfoType,
   IContactInfo,
-} from "@/@types/Hemocenter";
+} from "@/@types/BloodCenter";
 import {
   AtSymbolIcon,
   GlobeAmericasIcon,
@@ -12,15 +12,15 @@ import {
 } from "@heroicons/react/20/solid";
 import { ReactElement } from "react";
 
-interface IHemocenterCard {
-  hemocenter: IHemocenter;
+interface IBloodCenterCard {
+  bloodCenter: IBloodCenter;
 }
 
-export default function HemocenterCard({ hemocenter }: IHemocenterCard) {
+export default function BloodCenterCard({ bloodCenter }: IBloodCenterCard) {
   return (
     <div className="px-8 py-6 shadow-md rounded-sm h-fit">
-      <h3 className="font-medium">{hemocenter.name}</h3>
-      <ul>{renderHemocenterInfo(hemocenter.contact)}</ul>
+      <h3 className="font-medium">{bloodCenter.name}</h3>
+      <ul>{renderBloodCenterInfo(bloodCenter.contact)}</ul>
     </div>
   );
 }
@@ -33,7 +33,7 @@ const InfoIcons: { [key in ContactInfoType]: ReactElement } = {
   EMAIL: <AtSymbolIcon className={defaultClass} />,
 };
 
-function renderHemocenterInfo(contact: Contact) {
+function renderBloodCenterInfo(contact: Contact) {
   return Object.values(contact).map(
     ({ type, content }: IContactInfo, index) => (
       <p key={index} className="flex items-start gap-1 break-words max-w-max">
