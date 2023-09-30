@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Footer, Header } from "@/components";
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "DoeVida",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
