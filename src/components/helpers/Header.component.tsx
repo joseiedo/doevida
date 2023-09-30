@@ -26,7 +26,7 @@ export default function Header() {
               <Link href={"./"}>Por que doar?</Link>
             </li>
             <li>
-              <Link href={"./"}>Teste de elegibilidade</Link>
+              <Link href={"./teste-de-elegibilidade"}>Teste de elegibilidade</Link>
             </li>
           </ul>
         </nav>

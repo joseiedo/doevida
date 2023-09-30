@@ -1,6 +1,6 @@
 import "./globals.css";
-import type {Metadata} from "next";
-import {Footer, Header} from "@/components";
+import type { Metadata } from "next";
+import { Footer, Header } from "@/components";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -15,10 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Header/>
+      <body className="min-h-screen flex flex-col justify-between">
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
