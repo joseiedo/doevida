@@ -1,5 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Footer, Header } from "@/components";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "DoeVida",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen flex flex-col justify-between">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

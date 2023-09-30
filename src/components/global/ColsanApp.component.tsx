@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button, Section } from ".";
+import { Button, Section } from "../index";
 
 export default function ColsanApp() {
   return (

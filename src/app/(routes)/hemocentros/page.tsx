@@ -1,13 +1,12 @@
-import { PageBase } from "@/components";
-import BloodCenter from "../../../../models/BloodCenter";
-import BloodCenterCard from "@/components/BloodCenterCard.component";
-import { IBloodCenter } from "@/@types/BloodCenter";
+import {BloodCenter} from "@/models";
+import BloodCenterCard from "@/components/global/BloodCenterCard.component";
+import {IBloodCenter} from "@/@types/BloodCenter";
 
 export default async function BloodCenters() {
   const regions = await BloodCenter.getAll();
 
   return (
-    <PageBase>
+    <>
       <h1 className="text-center py-9  text-4xl font-bold text-gray-700">
         Hemocentros do país por região
       </h1>
@@ -19,7 +18,7 @@ export default async function BloodCenters() {
           </ul>
         </div>
       ))}
-    </PageBase>
+    </>
   );
 }
 
