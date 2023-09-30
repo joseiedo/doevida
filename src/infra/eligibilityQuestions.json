@@ -2,21 +2,21 @@
   {
     "id": 1,
     "label": "Você tem entre 18 e 69 anos de idade?",
-    "eligibleAnswer": true,
+    "eligibleAnswer": "SIM",
     "moreInfo": "Você precisa ter entre 18 e 69 anos de idade para doar sangue.",
     "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=%C2%BB%20Estar%20em%20boas%20condi%C3%A7%C3%B5es%20de,horas%20nas%20%C3%BAltimas%2024%20horas)"
   },
   {
     "id": 2,
     "label": "Você pesa mais de 50kg?",
-    "eligibleAnswer": true,
+    "eligibleAnswer": "SIM",
     "moreInfo": "Você precisa pesar mais de 50kg para doar sangue.",
     "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=%C2%BB%20Estar%20em%20boas%20condi%C3%A7%C3%B5es%20de,horas%20nas%20%C3%BAltimas%2024%20horas)"
   },
   {
     "id": 3,
     "label": "Você fez alguma tatuagem ou piercing nos últimos 6 meses?",
-    "eligibleAnswer": false,
+    "eligibleAnswer": "NÃO",
     "moreInfo": "Você não pode doar sangue se fez alguma tatuagem ou piercing nos últimos 6 meses.",
     "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=%C2%BB%20Estar%20em%20boas%20condi%C3%A7%C3%B5es%20de,horas%20nas%20%C3%BAltimas%2024%20horas)"
   }
