@@ -1,3 +1,4 @@
+import { routes } from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,21 +14,13 @@ export default function Header() {
         />
         <nav>
           <ul className="flex gap-x-4">
-            <li>
-              <Link href={"./"}>Início</Link>
-            </li>
-            <li>
-              <Link href={"./hemocentros"}>Hemocentros</Link>
-            </li>
-            <li>
-              <Link href={"./"}>Etapas</Link>
-            </li>
-            <li>
-              <Link href={"./"}>Por que doar?</Link>
-            </li>
-            <li>
-              <Link href={"./teste-de-elegibilidade"}>Teste de elegibilidade</Link>
-            </li>
+            {routes.map(({ href, label, target }) => (
+              <li key={href}>
+                <Link href={href} target={target ?? "_self"}>
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
