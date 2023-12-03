@@ -1,15 +1,13 @@
-import {
-  Contact,
-  IContactInfo,
-  ContactInfoType,
-  IBloodCenter,
-  IRegion,
-} from "@/@types/BloodCenter";
+import { IBloodCenter } from "@/@types/BloodCenter";
+import { IRegion } from "@/@types/Region";
+import { IContact, IContactInfo, IContactInfoType } from "@/@types/Contact";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
 const infoPattern = /(Endereço|CEP|Telefone|E-mail):?/gi;
-function formatBloodCenterInfo(contact: string): Contact {
+const BLOODCENTER_WEBSITE_URL = process.env.BLOODCENTER_WEBSITE_URL;
+
+function formatBloodCenterInfo(contact: string): IContact {
   const separator = "\n";
   const [address, postalCode, phone, email] = contact
     .replace(infoPattern, separator + "$1")
@@ -27,7 +25,7 @@ function formatBloodCenterInfo(contact: string): Contact {
 }
 
 function cleanBloodCenterContactInfo(content: string): IContactInfo {
-  const contactsTypes: { [key: string]: ContactInfoType } = {
+  const contactsTypes: { [key: string]: IContactInfoType } = {
     Endereço: "ADDRESS",
     Rua: "ADDRESS",
     Av: "ADDRESS",
@@ -51,9 +49,10 @@ function cleanBloodCenterContactInfo(content: string): IContactInfo {
 }
 
 async function getAll(): Promise<IRegion[]> {
-  const { data } = await axios.get(
-    "https://www.gov.br/saude/pt-br/acesso-a-informacao/acoes-e-programas/doacao-de-sangue/hemocentros-no-brasil",
-  );
+  if (BLOODCENTER_WEBSITE_URL === undefined) {
+    throw Error("Environment variable BLOODCENTER_WEBSITE_URL is empty");
+  }
+  const { data } = await axios.get(BLOODCENTER_WEBSITE_URL);
   const $ = cheerio.load(data);
 
   const result: IRegion[] = [];
