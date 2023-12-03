@@ -14,11 +14,9 @@ export default function Hero() {
         <h2 className="text-4xl font-bold text-white">
           Uma única doação <br />
           pode salvar até <br />
-          <span className="bg-rose-500">
-            Quatro vidas.
-          </span>
+          <span className="bg-rose-500">Quatro vidas.</span>
         </h2>
       </div>
-    </div >
+    </div>
   );
 }

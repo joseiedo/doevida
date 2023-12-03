@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 interface ISection {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export default function Section({children}: ISection){
-  return <section className="py-9">{children}</section>
+export default function Section({ children }: ISection) {
+  return <section className="py-9">{children}</section>;
 }

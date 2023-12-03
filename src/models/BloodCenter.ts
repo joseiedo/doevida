@@ -65,7 +65,9 @@ async function getAll(): Promise<IRegion[]> {
 
       const bloodCenters: IBloodCenter[] = [];
       for (let i = 0; i < bloodCenterElements.length; i += 2) {
-        const bloodCenterTitle = $(bloodCenterElements[i]).text().replace(/(\n)/g, "");
+        const bloodCenterTitle = $(bloodCenterElements[i])
+          .text()
+          .replace(/(\n)/g, "");
         const bloodCenterInfo = $(bloodCenterElements[i + 1]).text();
 
         bloodCenters.push({

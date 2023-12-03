@@ -10,7 +10,7 @@ export default function Button({ onClick, text, className = "" }: IButton) {
       onClick={onClick}
       className={`bg-rose-500 text-white py-2.5 px-4 rounded-sm ${className}`}
     >
-    { text }
-    </button >
+      {text}
+    </button>
   );
 }

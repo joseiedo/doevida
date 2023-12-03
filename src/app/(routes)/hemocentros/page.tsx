@@ -1,6 +1,6 @@
-import {BloodCenter} from "@/models";
+import { BloodCenter } from "@/models";
 import BloodCenterCard from "@/components/global/BloodCenterCard.component";
-import {IBloodCenter} from "@/@types/BloodCenter";
+import { IBloodCenter } from "@/@types/BloodCenter";
 
 export default async function BloodCenters() {
   const regions = await BloodCenter.getAll();
