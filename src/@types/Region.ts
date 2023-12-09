@@ -1,6 +1,6 @@
 import { IBloodCenter } from "./BloodCenter";
 
-export interface IRegion {
+export interface IBloodCenterRegion {
   name: string;
   bloodCenters: IBloodCenter[];
 }
