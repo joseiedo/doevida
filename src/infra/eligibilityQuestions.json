@@ -19,5 +19,47 @@
     "eligibleAnswer": "NÃO",
     "moreInfo": "Você não pode doar sangue se fez alguma tatuagem ou piercing nos últimos 6 meses.",
     "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=%C2%BB%20Estar%20em%20boas%20condi%C3%A7%C3%B5es%20de,horas%20nas%20%C3%BAltimas%2024%20horas)"
+  },
+  {
+    "id": 3,
+    "label": "Você está grávida ou deu à luz recentemente?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Mulheres grávidas ou que deram à luz recentemente não podem doar sangue.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20est%C3%A1%20gr%C3%A1vida%20ou%20deu%20%C3%A0%20luz%20recentemente,%20n%C3%A3o%20pode%20doar%20sangue."
+  },
+  {
+    "id": 4,
+    "label": "Você tem alguma condição cardíaca?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Dependendo da sua condição cardíaca, você pode ser elegível para doação se não apresentar sintomas por 6 meses. Consulte um profissional de saúde.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20tem%20uma%20condi%C3%A7%C3%A3o%20card%C3%ADaca,%20pode%20ser%20eleg%C3%ADvel%20se%20n%C3%A3o%20apresentar%20sintomas%20por%206%20meses."
+  },
+  {
+    "id": 5,
+    "label": "Você está com baixa de ferro?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Se você estiver com baixa de ferro, sua elegibilidade dependerá de avaliação médica. Consulte um profissional de saúde.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20estiver%20com%20baixa%20de%20ferro,%20sua%20elegibilidade%20depender%C3%A1%20de%20avalia%C3%A7%C3%A3o%20m%C3%A9dica."
+  },
+  {
+    "id": 6,
+    "label": "Você esteve envolvido em atividade sexual de risco nos últimos 6 meses?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Se você esteve envolvido em atividade sexual de risco nos últimos 6 meses, não pode doar sangue.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20esteve%20envolvido%20em%20atividade%20sexual%20de%20risco%20nos%20%C3%BAltimos%203%20meses,%20n%C3%A3o%20pode%20doar%20sangue."
+  },
+  {
+    "id": 7,
+    "label": "Você já usou drogas recreativas injetáveis?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Se você já usou drogas recreativas injetáveis, não poderá doar sangue.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20usou%20drogas%20recreativas%20injet%C3%A1veis%20nos%20%C3%BAltimos%205%20anos,%20n%C3%A3o%20pode%20doar%20sangue."
+  },
+  {
+    "id": 8,
+    "label": "Você teve diagnóstico de hepatite após os 11 anos de idade?",
+    "eligibleAnswer": "NÃO",
+    "moreInfo": "Você não pode doar sangue se teve diagnóstico de hepatite após os 11 anos de idade.",
+    "moreInfoLink": "https://www.prosangue.sp.gov.br/artigos/requisitos_basicos_para_doacao.html#:~:text=Se%20voc%C3%AA%20teve%20diagn%C3%B3stico%20de%20hepatite%20ap%C3%B3s%20os%2011%20anos%20de%20idade,%20n%C3%A3o%20pode%20doar%20sangue."
   }
 ]
