@@ -10,7 +10,8 @@ This is a Next.js project built with TypeScript, MongoDB, and TailwindCSS.
 
 1. Create your MongoDB cluster (you can use [Atlas](https://www.mongodb.com/cloud/atlas/register)).
 2. Fill the `DATABASE_URI` variable with your MongoDB database URI in the `.env` file.
-3. Install the dependencies and run the development server.
+3. If you use [NVM](https://github.com/nvm-sh/nvm) run `nvm install` and `nvm use` to use the same Node.js version that this project was made with. 
+4. Install the dependencies and run the development server.
 
 ```
    npm install
