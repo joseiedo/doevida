@@ -2,7 +2,9 @@
     <img width="200" src="./public/doevida-v2.svg" alt="Logo DoeVida">
 </p>
 
+<p align="center">
 This is a Next.js project built with TypeScript, MongoDB, and TailwindCSS.
+</p>
 
 ## Getting Started
 
@@ -40,22 +42,10 @@ EXAMPLE RESPONSE:
       {
         "name": "Fundação de Hematologia e Hemoterapia da Bahia - HEMOBA",
         "contact": {
-          "address": {
-            "type": "ADDRESS",
-            "content": "Ladeira do Hospital Geral, s/n - 2º andar - Brotas"
-          },
-          "postalCode": {
-            "type": "POSTALCODE",
-            "content": "40286-240 - Salvador/BA"
-          },
-          "phone": {
-            "type": "PHONE",
-            "content": "(71) 3116-5690"
-          },
-          "email": {
-            "type": "EMAIL",
-            "content": "direg.hemoba@hemoba.ba.gov.br"
-          }
+          "address": "Ladeira do Hospital Geral, s/n - 2º andar - Brotas",
+          "postalCode": "40286-240 - Salvador/BA",
+          "phone": "(71) 3116-5690",
+          "email": "direg.hemoba@hemoba.ba.gov.br"
         }
       }
     ]

@@ -1,6 +1,6 @@
 import { IBloodCenter } from "@/@types/BloodCenter";
 import { IBloodCenterRegion } from "@/@types/Region";
-import { IContact, IContactInfo, IContactInfoType } from "@/@types/Contact";
+import { IContact, IContactInfoType } from "@/@types/Contact";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { getDBClient } from "@/infra/database";
@@ -57,14 +57,14 @@ function formatBloodCenterInfo(contact: string): IContact {
  * @returns The cleaned contact information.
  * @throws Error if the contact information does not match any known type.
  */
-function cleanBloodCenterContactInfo(content: string): IContactInfo {
+function cleanBloodCenterContactInfo(content: string): string {
   const contactsTypes: { [key: string]: IContactInfoType } = {
-    Endereço: "ADDRESS",
-    Rua: "ADDRESS",
-    Av: "ADDRESS",
-    CEP: "POSTALCODE",
-    Telefone: "PHONE",
-    "E-mail": "EMAIL",
+    Endereço: "address",
+    Rua: "address",
+    Av: "address",
+    CEP: "postalCode",
+    Telefone: "phone",
+    "E-mail": "email",
   };
 
   const matchedType = Object.keys(contactsTypes).find((key) =>
@@ -75,10 +75,7 @@ function cleanBloodCenterContactInfo(content: string): IContactInfo {
     throw Error(`No matched type for information "${content}"`);
   }
 
-  return {
-    type: contactsTypes[matchedType],
-    content: content.replace(infoPattern, "").trim(),
-  };
+  return content.replace(infoPattern, "").trim();
 }
 
 /**
@@ -93,7 +90,7 @@ async function getAll(): Promise<IBloodCenterRegion[]> {
   if (cachedData.length > 0) {
     return cachedData;
   } else {
-    return scrapData();
+    return scrapDataAndSaveInDatabase();
   }
 }
 
@@ -102,7 +99,7 @@ async function getAll(): Promise<IBloodCenterRegion[]> {
  * @returns {Promise<IBloodCenterRegion[]>} A promise of the scraped data containing regions and blood centers.
  * @throws {Error} If the BLOODCENTER_WEBSITE_URL environment variable is empty.
  */
-async function scrapData(): Promise<IBloodCenterRegion[]> {
+async function scrapDataAndSaveInDatabase(): Promise<IBloodCenterRegion[]> {
   if (BLOODCENTER_WEBSITE_URL === undefined) {
     throw Error("Environment variable BLOODCENTER_WEBSITE_URL is empty");
   }

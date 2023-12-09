@@ -1,5 +1,5 @@
 import { IBloodCenter } from "@/@types/BloodCenter";
-import { IContact, IContactInfoType, IContactInfo } from "@/@types/Contact";
+import { IContact, IContactInfoType } from "@/@types/Contact";
 import {
   AtSymbolIcon,
   GlobeAmericasIcon,
@@ -22,20 +22,25 @@ export default function BloodCenterCard({ bloodCenter }: IBloodCenterCard) {
 }
 
 const defaultClass = "block h-6 w-6 text-rose-500";
-const InfoIcons: { [key in IContactInfoType]: ReactElement } = {
-  ADDRESS: <MapPinIcon className={defaultClass} />,
-  POSTALCODE: <GlobeAmericasIcon className={defaultClass} />,
-  PHONE: <PhoneIcon className={defaultClass} />,
-  EMAIL: <AtSymbolIcon className={defaultClass} />,
-};
 
+const InfoIcons: { [key in IContactInfoType]: ReactElement } = {
+  address: <MapPinIcon className={defaultClass} />,
+  postalCode: <GlobeAmericasIcon className={defaultClass} />,
+  phone: <PhoneIcon className={defaultClass} />,
+  email: <AtSymbolIcon className={defaultClass} />,
+};
 function renderBloodCenterInfo(contact: IContact) {
-  return Object.values(contact).map(
-    ({ type, content }: IContactInfo, index) => (
-      <p key={index} className="flex items-start gap-1 break-words max-w-max">
-        {InfoIcons[type]}
-        {content}
-      </p>
-    ),
-  );
+  const fields: IContactInfoType[] = [
+    "address",
+    "postalCode",
+    "phone",
+    "email",
+  ];
+
+  return fields.map((type) => (
+    <p key={type} className="flex items-start gap-1 break-words max-w-max">
+      {InfoIcons[type]}
+      {contact[type]}
+    </p>
+  ));
 }

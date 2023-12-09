@@ -1,13 +1,8 @@
 export interface IContact {
-  address: IContactInfo;
-  postalCode: IContactInfo;
-  phone: IContactInfo;
-  email: IContactInfo;
+  address: string;
+  postalCode: string;
+  phone: string;
+  email: string;
 }
 
-export interface IContactInfo {
-  type: IContactInfoType;
-  content: string;
-}
-
-export type IContactInfoType = "ADDRESS" | "POSTALCODE" | "PHONE" | "EMAIL";
+export type IContactInfoType = "address" | "postalCode" | "phone" | "email";
