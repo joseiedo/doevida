@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+    <img width="200" src="./public/doevida-v2.svg" alt="Logo DoeVida">
+</p>
+
+This is a Next.js project built with TypeScript, MongoDB, and TailwindCSS.
 
 ## Getting Started
 
-First, run the development server:
+1. Create your MongoDB cluster (you can use [Atlas](https://www.mongodb.com/cloud/atlas/register)).
+2. Fill the `DATABASE_URI` variable with your MongoDB database URI in the `.env` file.
+3. Install the dependencies and run the development server.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+   npm install
+   npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### About the API
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project retrieves data from the gov.br website and utilizes a free cluster from Atlas for database storage. Keep in mind that this API may experience downtime. While it's suitable for study purposes, it's not recommended for production use unless you save the data on your side.
 
-## Learn More
+If you want to integrate this API into your project, update `{url}` to https://doevida.vercel.app/.
 
-To learn more about Next.js, take a look at the following resources:
+### Endpoints
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### [GET] List Blood Centers by region
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ROUTE: `{url}/api/v1/hemocentros`
 
-## Deploy on Vercel
+EXAMPLE RESPONSE:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```json
+[
+  {
+    "_id": "65749b70558fe0ca135ed7fb",
+    "name": "Nordeste",
+    "bloodCenters": [
+      {
+        "name": "Fundação de Hematologia e Hemoterapia da Bahia - HEMOBA",
+        "contact": {
+          "address": {
+            "type": "ADDRESS",
+            "content": "Ladeira do Hospital Geral, s/n - 2º andar - Brotas"
+          },
+          "postalCode": {
+            "type": "POSTALCODE",
+            "content": "40286-240 - Salvador/BA"
+          },
+          "phone": {
+            "type": "PHONE",
+            "content": "(71) 3116-5690"
+          },
+          "email": {
+            "type": "EMAIL",
+            "content": "direg.hemoba@hemoba.ba.gov.br"
+          }
+        }
+      }
+    ]
+  }
+]
+```
